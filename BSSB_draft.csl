@@ -79,9 +79,7 @@
       <if type="thesis">
         <text variable="title" text-case="title"/>
       </if>
-      <!-- Software Hack -->
       <else-if type="book" variable="version" match="all">
-        <!-- Allow lower-case initial letters, e.g., iPhone, ggplot2 -->
         <text variable="title" font-style="italic"/>
       </else-if>
       <else-if type="bill book graphic legal_case legislation motion_picture report song" match="any">
@@ -256,11 +254,9 @@
             <text macro="publisher"/>
           </group>
         </else-if>
-        <!--Software hack-->
         <else-if type="book" variable="version" match="all">
           <group prefix=" " delimiter=". ">
             <group>
-              <!-- To Do: localize once we have a proper term -->
               <text macro="title" suffix=" [computer program]"/>
             </group>
             <group delimiter=" ">
