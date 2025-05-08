@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" demote-non-dropping-particle="sort-only" page-range-format="chicago">
   <info>
-    <title>BSSB citation style</title>
+    <title>BSSB style </title>
     <title-short>ASA</title-short>
     <id>https://ssbbulletin.org/index.php/bssb/index</id>
     <link href="https://ssbbulletin.org/index.php/bssb/index" rel="self"/>
@@ -63,13 +63,13 @@
       <choose>
         <if type="webpage post-weblog post" match="any">
           <group delimiter=" ">
-            <text term="retrieved" text-case="capitalize-first"/>
-            <date variable="accessed" form="text"/>
-            <text prefix="(" suffix=")" variable="URL"/>
+            <text term="cited" prefix="["/>
+            <date variable="accessed" form="text" suffix="]."/>
+            <text prefix="Available from " variable="URL"/>
           </group>
         </if>
         <else-if type="article-journal report" match="any">
-          <text variable="DOI"/>
+          <text variable="DOI" prefix="https://doi.org/"/>
         </else-if>
       </choose>
     </group>
@@ -200,7 +200,7 @@
     <sort>
       <key variable="issued"/>
       <key variable="author"/>
-      <key variable="title"/>
+      <key macro="year-sort"/>
     </sort>
     <layout prefix="(" suffix=")" delimiter=", ">
       <group delimiter=":">
@@ -214,15 +214,15 @@
   </citation>
   <bibliography hanging-indent="false">
     <sort>
-      <key variable="issued"/>
       <key macro="author"/>
+      <key variable="issued"/>
       <key macro="year-sort"/>
       <key variable="title"/>
     </sort>
     <layout suffix="">
       <group delimiter=" ">
         <text macro="author" suffix="." />
-        <text macro="year-date" prefix="(" suffix=")" />
+        <text macro="year-date" prefix="(" suffix=")." />
       </group>
       <choose>
         <if type="article-newspaper article-magazine" match="any">
