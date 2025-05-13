@@ -37,7 +37,7 @@
         <names variable="editor translator director"/>
         <choose>
           <if type="report">
-            <text variable="publisher"/>
+            <text variable="publisher" />
           </if>
         </choose>
         <text macro="anon"/>
@@ -94,7 +94,7 @@
     <choose>
       <if type="thesis manuscript">
         <group delimiter=", ">
-          <text variable="publisher"/>
+          <text variable="publisher" />
           <text variable="publisher-place"/>
           <choose>
             <if type="manuscript" match="any">
@@ -162,7 +162,7 @@
     </date>
   </macro>
   <macro name="pages">
-    <label variable="page" form="short" suffix=" " text-case="capitalize-first"/>
+    <label variable="page" form="short" text-case="lowercase" prefix="("/>
     <text variable="page"/>
   </macro>
   <macro name="edition">
@@ -201,7 +201,7 @@
       <key macro="year-sort"/>
     </sort>
     <layout prefix="(" suffix=")" delimiter=", ">
-      <group delimiter=":">
+      <group delimiter=",">
         <group delimiter=", ">
           <text macro="author-short"/>
           <text macro="year-date" />
@@ -240,7 +240,7 @@
             <group prefix=" " delimiter=", ">
               <text macro="edition"/>
               <text macro="editor" suffix="."/>
-              <text macro="publisher"/>
+              <text macro="publisher" />
             </group>
             <text variable="genre"/>
           </group>
@@ -251,7 +251,7 @@
             <text macro="edition"/>
             <text macro="editor" suffix="."/>
             <text variable="genre"/>
-            <text macro="publisher"/>
+            <text macro="publisher" />
           </group>
         </else-if>
         <else-if type="book" variable="version" match="all">
@@ -273,7 +273,7 @@
             <text macro="edition"/>
             <text macro="editor" suffix="."/>
             <text macro="report"/>
-            <text macro="publisher"/>
+            <text macro="publisher" suffix=","/>
           </group>
         </else-if>
         <else-if type="chapter paper-conference" match="any">
@@ -281,8 +281,7 @@
             <text macro="title" prefix=" " suffix="."/>
             <group delimiter=", " suffix=".">
               <group delimiter=" ">
-                <text macro="pages"/>
-                <text term="in" text-case="lowercase"/>
+                <text term="In" text-case="lowercase"/>
                 <group delimiter=". ">
                   <text variable="container-title" font-style="italic"/>
                   <text macro="volume"/>
@@ -292,6 +291,7 @@
               <text macro="editor"/>
             </group>
             <text macro="publisher"/>
+            <text macro="pages" text-case="lowercase" suffix=")."/>
           </group>
         </else-if>
         <else-if type="speech" match="any">
@@ -313,12 +313,12 @@
           </group>
           <group prefix=" " suffix="." delimiter=" ">
             <text variable="container-title" font-style="italic" text-case="title"/>
-            <group delimiter=":">
+            <group delimiter=", " font-style="normal">
               <group>
-                <text variable="volume"/>
-                <text variable="issue" prefix="(" suffix=")"/>
+                <text variable="volume" font-style="italic"/>
+                <text variable="issue" prefix="(" suffix=")" font-style="normal"/>
               </group>
-              <text variable="page"/>
+              <text variable="page" font-style="normal"/>
             </group>
           </group>
         </else>
